@@ -1,19 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html','./src/**/*.{js,jsx}'],
   darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
-      fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
-      keyframes: {
-        fadeUp:  { from:{ opacity:'0', transform:'translateY(24px)' }, to:{ opacity:'1', transform:'translateY(0)' } },
-        fadeIn:  { from:{ opacity:'0' }, to:{ opacity:'1' } },
-        float:   { '0%,100%':{ transform:'translateY(0)' }, '50%':{ transform:'translateY(-10px)' } },
+      colors: {
+        navy: '#0A0F1C',
+        accent: '#4F8CFF',
+        violet: '#8A5CFF',
+        softgray: '#F1F5F9',
       },
-      animation: {
-        'fade-up': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both',
-        'fade-in': 'fadeIn 0.5s ease both',
-        'float':   'float 4s ease-in-out infinite',
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
       },
     },
   },

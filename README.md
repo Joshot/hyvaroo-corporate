@@ -2,20 +2,18 @@
 
 > Premium company profile website for **Hyvaroo Labs** — a technology-focused software house.
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwindcss)
-![Supabase](https://img.shields.io/badge/Supabase-Database-3FCF8E?logo=supabase)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 
 ## ✨ Features
 
-- 🎨 **Ultra-clean, minimal design** — inspired by Stripe, Vercel, Linear
-- 🌙 **Dark/Light mode** toggle with smooth transitions
-- 📱 **Fully responsive** across all devices
-- ⚡ **Smooth animations** — section fade-in, hover effects, glow buttons
-- 📬 **Contact form with Supabase** — messages saved to database
-- 🔍 **SEO friendly** — full meta tags, Open Graph, Twitter cards
-- 🚀 **Production ready** — TypeScript, clean architecture
+- 🎨 Ultra-clean, minimal design — inspired by Stripe, Vercel, Linear
+- 🌙 Dark/Light mode toggle with smooth transitions
+- 📱 Fully responsive across all devices
+- ⚡ Smooth fade-up animations on scroll
+- 🚀 Zero backend — fully static, deploy anywhere instantly
+- 🔍 SEO friendly meta tags
 
 ## 📋 Sections
 
@@ -26,115 +24,53 @@
 5. **Why Choose Us** — 4 value propositions
 6. **Testimonials** — 3 client reviews
 7. **CTA** — Call-to-action banner
-8. **Contact** — Form connected to Supabase
+8. **Contact** — Dummy form with success state
 9. **Footer** — Links, socials, email
 
 ## 🚀 Getting Started
-
-### 1. Clone and Install
 
 ```bash
 git clone https://github.com/Joshot/hyvaroo-corporate.git
 cd hyvaroo-corporate
 npm install
-```
-
-### 2. Set Up Supabase
-
-1. Create a project at [supabase.com](https://supabase.com)
-2. Go to **SQL Editor** and run the migration:
-
-```sql
--- from: supabase/migrations/001_create_contact_messages.sql
-CREATE TABLE IF NOT EXISTS public.contact_messages (
-  id BIGSERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  message TEXT NOT NULL,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-ALTER TABLE public.contact_messages ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow public inserts" ON public.contact_messages FOR INSERT WITH CHECK (true);
-```
-
-3. Copy your **Project URL** and **anon key** from Settings → API
-
-### 3. Configure Environment
-
-```bash
-cp .env.example .env.local
-```
-
-Edit `.env.local`:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
-```
-
-### 4. Run Development Server
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:5173](http://localhost:5173)
 
 ## 🌐 Deploy to Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Joshot/hyvaroo-corporate)
 
-1. Click the button above or go to [vercel.com](https://vercel.com)
-2. Import the repository
-3. Add environment variables:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. Deploy!
-
-## 🎨 Design System
-
-| Token | Value |
-|-------|-------|
-| Primary | `#0A0F1C` (Deep Navy) |
-| White | `#FFFFFF` |
-| Accent | `#4F8CFF → #8A5CFF` (Gradient) |
-| Soft Gray | `#F1F5F9` |
+**No environment variables needed** — just import & deploy!
 
 ## 🛠 Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: React 18 + Vite 5
 - **Styling**: TailwindCSS 3.4
-- **Database**: Supabase (PostgreSQL)
-- **Language**: TypeScript
 - **Icons**: Lucide React
-- **Theme**: next-themes
+- **Animations**: CSS + IntersectionObserver
 
-## 📁 Project Structure
+## 📁 Structure
 
 ```
 src/
-├── app/
-│   ├── api/contact/route.ts  # Contact form API
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
 ├── components/
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
-│   ├── Services.tsx
-│   ├── Portfolio.tsx
-│   ├── About.tsx
-│   ├── WhyUs.tsx
-│   ├── Testimonials.tsx
-│   ├── CTA.tsx
-│   ├── Contact.tsx
-│   ├── Footer.tsx
-│   └── ThemeProvider.tsx
-└── lib/
-    └── supabase.ts
-supabase/
-└── migrations/
-    └── 001_create_contact_messages.sql
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── Services.jsx
+│   ├── Portfolio.jsx
+│   ├── About.jsx
+│   ├── WhyUs.jsx
+│   ├── Testimonials.jsx
+│   ├── CTA.jsx
+│   ├── Contact.jsx
+│   └── Footer.jsx
+├── hooks/
+│   └── useFadeUp.js
+├── App.jsx
+├── main.jsx
+└── index.css
 ```
 
 ## 📧 Contact
